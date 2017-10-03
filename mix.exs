@@ -3,8 +3,8 @@ defmodule Intercom.Mixfile do
 
   def project do
     [app: :intercom,
-     version: "0.0.3",
-     elixir: "~> 1.4.4",
+     version: "0.0.4",
+     elixir: "~> 1.5.0",
      description: description(),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -31,7 +31,7 @@ defmodule Intercom.Mixfile do
   defp deps do
     [
       {:estree, "~> 2.3.0"},
-      {:httpoison, "~> 0.11"}
+      {:httpoison, "~> 0.13"}
     ]
   end
 
