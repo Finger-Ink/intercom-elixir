@@ -2,14 +2,16 @@ defmodule Intercom.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :intercom,
-     version: "0.0.5",
-     elixir: "~> 1.6",
-     description: description(),
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     package: package(),
-     deps: deps()]
+    [
+      app: :intercom,
+      version: "0.0.5",
+      elixir: "~> 1.6",
+      description: description(),
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      package: package(),
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application
@@ -31,7 +33,7 @@ defmodule Intercom.Mixfile do
   defp deps do
     [
       {:estree, "~> 2.3.0"},
-      {:httpoison, "~> 1.0"}
+      {:httpoison, "~> 1.1"}
     ]
   end
 
@@ -45,7 +47,10 @@ defmodule Intercom.Mixfile do
       files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
       maintainers: ["Bob Long"],
       licenses: ["Apache 2.0"],
-      links: %{"GitHub" => "https://github.com/intercom/intercom-elixir",
-               "Docs" => "https://github.com/intercom/intercom-elixir"}]
+      links: %{
+        "GitHub" => "https://github.com/intercom/intercom-elixir",
+        "Docs" => "https://github.com/intercom/intercom-elixir"
+      }
+    ]
   end
 end
