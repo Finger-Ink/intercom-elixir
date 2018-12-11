@@ -33,7 +33,7 @@ defmodule Intercom.Mixfile do
   defp deps do
     [
       {:estree, "~> 2.3.0"},
-      {:httpoison, "~> 1.1"}
+      {:httpoison, "~> 1.2"}
     ]
   end
 
