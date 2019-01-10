@@ -5,13 +5,13 @@ defmodule Intercom do
 
   def to_javascript_object(dict) when is_map(dict) do
     props = Enum.map(dict, fn {k, v} ->
-      Builder.property(
-        Builder.identifier(k),
-        v |> Escaping.html_escape |> Builder.literal
-      )
+      Builder.property(Builder.identifier(k), escape_value(v))
     end)
     Builder.object_expression(props)
   end
+
+  def escape_value(value) when is_binary(value), do: value |> Escaping.html_escape |> Builder.literal
+  def escape_value(value), do: Builder.literal(value)
 
   def boot({:ok, opts}), do: {:ok, boot(opts)}
   def boot({:error, reason}), do: {:error, reason}
