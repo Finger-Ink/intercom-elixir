@@ -1,7 +1,7 @@
 defmodule Intercom.Client do
   use HTTPoison.Base
 
-  defp process_request_headers(headers) do
+  def process_request_headers(headers) do
     Enum.into(headers, [
       Accept: "application/json",
       "Content-Type": "application/json"
