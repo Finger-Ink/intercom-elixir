@@ -2,11 +2,10 @@ defmodule Intercom.Client do
   use HTTPoison.Base
 
   def process_request_headers(headers) do
-    headers
-    |> Keyword.merge(
+    headers ++ [
       Accept: "application/json",
       "Content-Type": "application/json"
-    )
+    ]
   end
 
   def process_url(url) do

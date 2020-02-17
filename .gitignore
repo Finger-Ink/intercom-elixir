@@ -3,3 +3,7 @@
 /deps
 erl_crash.dump
 *.ez
+
+# Specifically ignored for VScode — .vscode because this contains ENV vars
+/.vscode
+/.elixir_ls
