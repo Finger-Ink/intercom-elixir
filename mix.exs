@@ -5,7 +5,7 @@ defmodule Intercom.Mixfile do
     [
       app: :intercom,
       version: "0.0.5",
-      elixir: "~> 1.6",
+      elixir: "~> 1.14.4",
       description: description(),
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
@@ -18,7 +18,7 @@ defmodule Intercom.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [extra_applications: [:logger, :estree]]
   end
 
   # Dependencies can be Hex packages:
@@ -32,8 +32,8 @@ defmodule Intercom.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:estree, "~> 2.3.0"},
-      {:httpoison, "~> 1.2"}
+      {:estree, "~> 2.7"},
+      {:httpoison, "~> 2.1"}
     ]
   end
 
