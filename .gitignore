@@ -7,3 +7,4 @@ erl_crash.dump
 # Specifically ignored for VScode — .vscode because this contains ENV vars
 /.vscode
 /.elixir_ls
+/.hex-docs
