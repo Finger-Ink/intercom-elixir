@@ -4,8 +4,8 @@ defmodule Intercom.Mixfile do
   def project do
     [
       app: :intercom,
-      version: "0.0.5",
-      elixir: "~> 1.14.4",
+      version: "0.1.0",
+      elixir: "~> 1.14",
       description: description(),
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
@@ -33,7 +33,8 @@ defmodule Intercom.Mixfile do
   defp deps do
     [
       {:estree, "~> 2.7"},
-      {:httpoison, "~> 2.1"}
+      {:req, "~> 0.5"},
+      {:plug, "~> 1.0", only: :test}
     ]
   end
 
@@ -44,12 +45,22 @@ defmodule Intercom.Mixfile do
   defp package do
     [
       name: :intercom,
-      files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+      files: [
+        "lib",
+        "priv",
+        "mix.exs",
+        "README*",
+        "readme*",
+        "LICENSE*",
+        "license*",
+        "CHANGELOG*",
+        "guides"
+      ],
       maintainers: ["Bob Long"],
       licenses: ["Apache 2.0"],
       links: %{
-        "GitHub" => "https://github.com/intercom/intercom-elixir",
-        "Docs" => "https://github.com/intercom/intercom-elixir"
+        "GitHub" => "https://github.com/finger-ink/intercom-elixir",
+        "Docs" => "https://github.com/finger-ink/intercom-elixir"
       }
     ]
   end

@@ -43,19 +43,21 @@ end
 # Intercom REST API:
 
 
-The Intercom [REST API](https://developers.intercom.io/) provides full access to Intercom resources. This library provides a thin wrapper over [httpoison](https://github.com/edgurgel/httpoison):
+The Intercom [REST API](https://developers.intercom.io/) provides full access to Intercom resources. This library provides a thin wrapper over [req](https://github.com/wojtekmach/req):
 
 ```elixir
 require Intercom.Client
 
-Intercom.Client.start
-
 Intercom.Client.get!(
   "/users",
   [],
-  hackney: Intercom.Client.auth("<personal access token>", "")
+  Intercom.Client.auth("<personal access token>", "")
 )
 ```
+
+The response is a `%Req.Response{}` with `:status`, `:body`, and `:headers` fields. JSON bodies are decoded automatically.
+
+> Upgrading from `0.0.x` (HTTPoison-backed)? See [`guides/upgrade-to-0.1.0.md`](guides/upgrade-to-0.1.0.md) for a mechanical, find/replace migration.
 
 If you already have an access token you can find it [here](https://app.intercom.com/developers/_). If you want to create or learn more about access tokens then you can find more info [here](https://developers.intercom.io/docs/personal-access-tokens)
 
